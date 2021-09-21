@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>RegistrAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- definicion de un formulario y metodo envio -->
+  <form [formGroup]="usuario" (ngSubmit)="inicio_sesion()">
+    <ion-card>
+      <!-- Titulo de carta -->
+      <ion-card-header>
+        <ion-card-title style="text-align: center;">Inicio de sesión</ion-card-title>
+      </ion-card-header>
+
+      <!-- Formulario inicio de sesion -->
+      <ion-card-content>
+        <!-- Ingresar nombre de usuario -->
+        <ion-item>
+          <ion-label position="floating">Nombre de usuario</ion-label>
+          <ion-input formControlName="nom_usuario" type="name"></ion-input>
+        </ion-item>
+
+        <!-- Ingresar contraseña -->
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="clave" type="password"></ion-input>
+        </ion-item>
+
+        <!-- olvido su contraseña -->
+        <ion-item lines="none">
+          <ion-button fill="clear" routerLink="/cam-contras">¿Ha olvidado su contraseña?</ion-button>
+        </ion-item>
+
+        <!-- Boton continuar -->
+        <ion-item lines="none" style="padding-top: 30px;">
+          <ion-button type="submit" slot="end" size="medium">Ingresar</ion-button>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+  <ion-button fill="clear" size="small" routerLink="/tabs/bie-prof">Profesor</ion-button>
+  <ion-button fill="clear" size="small" routerLink="/tab-alumn/bie-alum">Alumno</ion-button>
+</ion-content>

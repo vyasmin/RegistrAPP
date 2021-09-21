@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RegistrAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center;"s>
+  <!-- Carta para informacion de codigo qr -->
+  <ion-card>
+    <!-- Cabecera de carta -->
+    <ion-card-header>
+      <ion-card-title>información de la clase</ion-card-title>
+    </ion-card-header>
+
+    <!-- Cuerpo de carta -->
+    <ion-card-content>
+      <ion-list>
+        <!-- Ingreso de seccion -->
+        <ion-item>
+          <ion-label>Sección</ion-label>
+          <ion-select value="1" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option value="1">PGY4121-001D</ion-select-option>
+            <ion-select-option value="2">PGY4121-002D</ion-select-option>
+            <ion-select-option value="3">PGY4121-003D</ion-select-option>
+            <ion-select-option value="4">PGY4121-004D</ion-select-option>
+            <ion-select-option value="5">PGY4121-005D</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha</ion-label>
+          <ion-datetime displayFormat="D MMM YYYY H:mm" min="2021" max="2100" value="2021-09-20T11:06Z"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- Carta para codigo qr -->
+  <ion-card *ngIf="qrData">
+    <!-- Cabecera de carta -->
+    <ion-card-header>
+      <ion-card-title>Generar código QR</ion-card-title>
+    </ion-card-header>
+    <!-- Cuerpo de carta -->
+    <ion-card-content>
+      <ion-item>
+        <ngx-qrcode [elementType]="elementType" [value]="qrData"></ngx-qrcode>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" pleaceholder="ingrese codigo QR" [(ngModel)]="qrData"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

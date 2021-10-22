@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 @Component({
   selector: 'app-tab-alumn',
   templateUrl: './tab-alumn.page.html',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabAlumnPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authentServ: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
-
+  logoutUser(){
+    this.authentServ.logout();
+  }
 }

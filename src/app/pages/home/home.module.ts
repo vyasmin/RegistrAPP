@@ -4,7 +4,6 @@ import { IonicModule } from '@ionic/angular';
 //importar formulario reactivo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-
 import { HomePageRoutingModule } from './home-routing.module';
 
 

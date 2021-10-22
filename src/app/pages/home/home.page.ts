@@ -1,7 +1,9 @@
 //Importacion de componentes
 import { Component } from '@angular/core';
 //Importacion de control de formularios
-import { FormControl, FormGroup } from '@angular/forms';
+
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,26 +12,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class HomePage {
   // En interior se declaran objetos  a injectar en TypeScrip
-  constructor() { }
+  constructor(
+    private authentServ: AuthenticationService
+  ) { }
 
-  // variables (nombre:tipo=valor)
+ ngOnInit(){
 
-  //declaracion de objetos de tipo formulario
-
-  // grupo de controles de personas
-  usuario = new FormGroup({
-    nom_usuario :new FormControl(''),
-    clave :new FormControl('')
-  });
-
-  //Arreglos
-  lista_usuarios = new Array();
-  usua:any;
-
-  //metodos de acceso
-  inicio_sesion(){
-    console.log(this.usuario.value);
-
-    localStorage.setItem('datos','hola');
-  }
+ }
+ loginUser(){
+   this.authentServ.login();
+ }
 }

@@ -16,15 +16,15 @@
       <!-- Formulario inicio de sesion -->
       <ion-card-content>
         <!-- Ingresar nombre de usuario -->
-        <ion-item>
+        <ion-item *ngIf="user">
           <ion-label position="floating">Nombre de usuario</ion-label>
-          <ion-input type="name"></ion-input>
+          <ion-input [(ngModel)]="user.nombre" type="name"></ion-input>
         </ion-item>
 
         <!-- Ingresar contraseña -->
-        <ion-item>
+        <ion-item *ngIf="user">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input [(ngModel)]="user.pass" type="password"></ion-input>
         </ion-item>
 
         <!-- olvido su contraseña -->
@@ -34,7 +34,7 @@
 
         <!-- Boton continuar -->
         <ion-item lines="none" style="padding-top: 30px;">
-          <ion-button type="submit" slot="end" size="medium" (click)='loginUser()'>Ingresar</ion-button>
+          <ion-button type="submit" slot="end" size="medium">Ingresar</ion-button>
         </ion-item>
 
       </ion-card-content>
@@ -42,4 +42,5 @@
   </form>
   <ion-button fill="clear" size="small" routerLink="/tabs/bie-prof">Profesor</ion-button>
   <ion-button fill="clear" size="small" routerLink="/tab-alumn/bie-alum">Alumno</ion-button>
+  <ion-button (click)='recuperar()'>ok</ion-button>
 </ion-content>

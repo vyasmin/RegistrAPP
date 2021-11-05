@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AnimacionesPageRoutingModule } from './animaciones-routing.module';
+import { P404PageRoutingModule } from './p404-routing.module';
 
-import { AnimacionesPage } from './animaciones.page';
+import { P404Page } from './p404.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AnimacionesPageRoutingModule
+    P404PageRoutingModule
   ],
-  declarations: [AnimacionesPage]
+  declarations: [P404Page]
 })
-export class AnimacionesPageModule {}
+export class P404PageModule {}

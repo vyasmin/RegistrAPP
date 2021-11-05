@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
-    path: 'animaciones',
-    loadChildren: () => import('./pages/animaciones/animaciones.module').then( m => m.AnimacionesPageModule)
-  },
-  {
     path: 'cam-contras',
     loadChildren: () => import('./pages/cam-contras/cam-contras.module').then( m => m.CamContrasPageModule)
   },
@@ -46,6 +42,10 @@ const routes: Routes = [
     path: 'capturar-qr',
     loadChildren: () => import('./pages/capturar-qr/capturar-qr.module').then( m => m.CapturarQrPageModule),
     canActivate: [AutGuardService]
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/p404/p404.module').then( m => m.P404PageModule)
   },
 ];
 

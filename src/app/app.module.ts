@@ -18,10 +18,16 @@ import { Storage } from '@ionic/storage';
 
 /* Establecer los servicios como proveedores de servicios */
 
+/* importar librerias */
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule
+  ],
+  
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner,

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-capturar-qr',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CapturarQrPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private barcodeScan: BarcodeScanner,
+    private toastCtrl: ToastController
+  ) { }
 
   ngOnInit() {
   }
-
+  scanner() {
+    this.barcodeScan.scan().then(barcodeData => {
+      this.presentar(barcodeData);
+    });
+  }
+  async presentar(mensaje: any) {
+    let toast = await this.toastCtrl.create({
+      message: 'Lectura Scanner: '+ mensaje,
+      duration: 5000,
+      position: 'top'
+    });
+    await toast.present();
+  }
 }

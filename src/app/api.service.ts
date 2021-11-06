@@ -1,28 +1,40 @@
 import { Injectable } from '@angular/core';
 
 /* importar librerias */
+import { Observable } from 'rxjs';
 
-import { HttpClient,HttpHandler,HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { retry,catchError } from 'rxjs/operators';
-import { Observable, observable } from 'rxjs';
+//
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Usuario } from './pages/model/usuario';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':'application/json',
-      'Access-Control-Allow-Origin':'**'
-    })
+  private usuario: Observable<Usuario[]>;
+  private usuariosCollection: AngularFirestoreCollection<Usuario>;
+
+  constructor(
+    private db: AngularFirestore
+    ) {
+    this.usuariosCollection= db.collection<Usuario>('usuarios');
+    this.usuario = this.usuariosCollection.snapshotChanges().pipe(map(
+      actions =>{
+        return actions.map(
+          a=>{
+            const data= a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return {id, ...data};
+          }
+        )
+      }
+    ));
   }
-  constructor(private http:HttpClient) {
-  }
-  direccion='https://jsonplaceholder.typicode.com/posts';
-  getPosts(): Observable<any>{
-    return this.http.get(this.direccion).pipe(retry(3));
-  }
-  getPost(id):Observable<any>{
-    return this.http.get(this.direccion+'/'+id).pipe(retry(3));
+
+  //metodos
+  //recuperar todo
+  getTodos(){
+    return this.usuario;
   }
 }

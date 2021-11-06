@@ -21,10 +21,18 @@ import { Storage } from '@ionic/storage';
 /* importar librerias */
 import { HttpClientModule } from '@angular/common/http';
 
+//
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore'
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule
   ],
   

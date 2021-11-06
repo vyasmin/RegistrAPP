@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AutGuardService } from './services/aut-guard.service';
 
 const routes: Routes = [
   {
@@ -31,17 +30,14 @@ const routes: Routes = [
   {
     path: 'bie-alum',
     loadChildren: () => import('./pages/bie-alum/bie-alum.module').then( m => m.BieAlumPageModule),
-    canActivate: [AutGuardService]
   },
   {
     path: 'tab-alumn',
     loadChildren: () => import('./pages/tab-alumn/tab-alumn.module').then( m => m.TabAlumnPageModule),
-    canActivate: [AutGuardService]
   },
   {
     path: 'capturar-qr',
     loadChildren: () => import('./pages/capturar-qr/capturar-qr.module').then( m => m.CapturarQrPageModule),
-    canActivate: [AutGuardService]
   },
   {
     path: '**',

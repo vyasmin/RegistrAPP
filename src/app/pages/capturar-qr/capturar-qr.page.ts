@@ -16,6 +16,7 @@ export class CapturarQrPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.scanner();
   }
   scanner() {
     this.barcodeScan.scan().then(barcodeData => {

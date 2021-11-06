@@ -6,41 +6,35 @@
 
 <ion-content [fullscreen]="true">
   <!-- definicion de un formulario y metodo envio -->
-  <form (ngSubmit)="loginUser()">
-    <ion-card>
-      <!-- Titulo de carta -->
-      <ion-card-header>
-        <ion-card-title style="text-align: center;">Inicio de sesión</ion-card-title>
-      </ion-card-header>
+  <ion-card>
+    <!-- Titulo de carta -->
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Inicio de sesión</ion-card-title>
+    </ion-card-header>
 
-      <!-- Formulario inicio de sesion -->
-      <ion-card-content>
-        <!-- Ingresar nombre de usuario -->
-        <ion-item *ngIf="user">
-          <ion-label position="floating">Nombre de usuario</ion-label>
-          <ion-input [(ngModel)]="user.nombre" type="name"></ion-input>
-        </ion-item>
+    <!-- Formulario inicio de sesion -->
+    <ion-card-content>
+      <!-- Ingresar nombre de usuario -->
+      <ion-item>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="name" [(ngModel)]="usuario"></ion-input>
+      </ion-item>
 
-        <!-- Ingresar contraseña -->
-        <ion-item *ngIf="user">
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [(ngModel)]="user.pass" type="password"></ion-input>
-        </ion-item>
+      <!-- Ingresar contraseña -->
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      </ion-item>
 
-        <!-- olvido su contraseña -->
-        <ion-item lines="none">
-          <ion-button fill="clear" routerLink="/cam-contras">¿Ha olvidado su contraseña?</ion-button>
-        </ion-item>
+      <!-- olvido su contraseña -->
+      <ion-item lines="none">
+        <ion-button fill="clear" routerLink="/cam-contras">¿Ha olvidado su contraseña?</ion-button>
+      </ion-item>
 
-        <!-- Boton continuar -->
-        <ion-item lines="none" style="padding-top: 30px;">
-          <ion-button type="submit" slot="end" size="medium">Ingresar</ion-button>
-        </ion-item>
+      <!-- Boton continuar -->
+      <ion-item lines="none" style="padding-top: 30px;">
+        <ion-button type="submit" slot="end" size="medium" (click)="validar()">Ingresar</ion-button>
+      </ion-item>
 
-      </ion-card-content>
-    </ion-card>
-  </form>
-  <ion-button fill="clear" size="small" routerLink="/tabs/bie-prof">Profesor</ion-button>
-  <ion-button fill="clear" size="small" routerLink="/tab-alumn/bie-alum">Alumno</ion-button>
-  <ion-button (click)='recuperar()'>ok</ion-button>
-</ion-content>
+    </ion-card-content>
+  </ion-card>

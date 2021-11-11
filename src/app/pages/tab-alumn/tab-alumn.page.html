@@ -1,17 +1,17 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="capturar-qr">
+    <ion-tab-button (click)="opcion1()">
       <ion-icon name="qr-code-outline"></ion-icon>
       <ion-label>Capturar QR</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="bie-alum">
+    <ion-tab-button (click)="opcion2()">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button routerLink="/home">
+    <ion-tab-button (click)="opcion3()">
       <ion-icon name="exit-outline"></ion-icon>
       <ion-label>Cerrar sesión</ion-label>
     </ion-tab-button>

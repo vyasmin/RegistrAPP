@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+/** */
+import { ActivatedRoute } from '@angular/router';
+import { NavController, LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+  usuarioid = null;
+
+  constructor(
+    private navCtrl: NavController,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.usuarioid = this.route.snapshot.params['id'];
+    this.navCtrl.navigateForward(['/tabs/' + this.usuarioid + '/bie-prof/', this.usuarioid]);
   }
+
+  opcion1() {
+    this.navCtrl.navigateForward(['/tabs/' + this.usuarioid + '/generar-qr', this.usuarioid]);
+  };
+  opcion2() {
+    this.navCtrl.navigateForward(['/tabs/' + this.usuarioid + '/bie-prof', this.usuarioid]);
+  };
+  opcion3() {
+    this.navCtrl.navigateForward(['/home']);
+  };
 
 }

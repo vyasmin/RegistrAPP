@@ -12,11 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'generar-qr',
+    path: 'generar-qr/:id',
     loadChildren: () => import('./pages/generar-qr/generar-qr.module').then( m => m.GenerarQRPageModule)
   },
   {
-    path: 'tabs',
+    path: 'tabs/:id',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/bie-alum/bie-alum.module').then( m => m.BieAlumPageModule),
   },
   {
-    path: 'tab-alumn',
+    path: 'tab-alumn/:id',
     loadChildren: () => import('./pages/tab-alumn/tab-alumn.module').then( m => m.TabAlumnPageModule),
   },
   {

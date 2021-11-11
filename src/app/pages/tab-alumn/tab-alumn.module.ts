@@ -15,11 +15,11 @@ const routes: Routes=[{
   component: TabAlumnPage,
   children: [
     {
-      path: 'bie-alum',
+      path: 'bie-alum/:id',
       loadChildren: () => import('../bie-alum/bie-alum.module').then( m => m.BieAlumPageModule)
     },
     {
-      path: 'capturar-qr',
+      path: 'capturar-qr/:id',
       loadChildren: () => import('../capturar-qr/capturar-qr.module').then( m => m.CapturarQrPageModule)
     }
   ],

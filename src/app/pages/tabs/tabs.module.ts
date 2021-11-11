@@ -15,11 +15,11 @@ const routes: Routes=[{
   component: TabsPage,
   children: [
     {
-      path: 'bie-prof',
+      path: 'bie-prof/:id',
       loadChildren: () => import('../bie-prof/bie-prof.module').then( m => m.BieProfPageModule)
     },
     {
-      path: 'generar-qr',
+      path: 'generar-qr/:id',
       loadChildren: () => import('../generar-qr/generar-qr.module').then( m => m.GenerarQRPageModule)
     }
   ],

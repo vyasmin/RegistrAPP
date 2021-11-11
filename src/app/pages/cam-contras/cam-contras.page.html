@@ -14,17 +14,20 @@
       <ion-card-title style="text-align: center;">Cambio de contraseña</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Correo electrónico</ion-label>
-        <ion-input type="email"></ion-input>
+      <!-- Nombre -->
+      <ion-item ng>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario"></ion-input>
       </ion-item>
+
+      <!-- Clave -->
       <ion-item>
-        <ion-label position="floating">R.U.T.</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-label position="floating">Nueva contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="pass"></ion-input>
       </ion-item>
 
       <ion-item lines="none" style="padding-top: 30px;">
-        <ion-button slot="end" size="medium">Recuperar contraseña</ion-button>
+        <ion-button slot="end" size="medium" (click)="validar()">Recuperar contraseña</ion-button>
       </ion-item>
       
     </ion-card-content>

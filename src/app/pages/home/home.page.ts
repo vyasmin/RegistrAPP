@@ -6,6 +6,7 @@ import { Usuario } from '../model/usuario';
 import { ApiService } from 'src/app/api.service';
 import { NavController, LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -32,11 +33,11 @@ export class HomePage {
       this.array_usuarios=resp;
       var x=0;
       this.array_usuarios.forEach(item => {
-        console.log(item.nombre+" - "+item.pass);
+        /*console.log(item.nombre+" - "+item.pass);*/
         if (item.nombre==this.usuario && item.pass==this.pass) {
           console.log("Usuario Validado con nivel:"+item.tipo);
            x=1;
-           this.login(item.tipo);
+           this.login(item.tipo,item.id);
         }
       });
       if (x==0) {
@@ -46,13 +47,13 @@ export class HomePage {
     
   };
 
-  login(nivel:number){
+  login(nivel:number, id:string){
     console.log(nivel);
     if (nivel>0) {
       if (nivel==1) {
-        this.navCtrl.navigateForward('/tabs/bie-prof');
+        this.navCtrl.navigateForward(['/tabs/',id]);
       } else {
-        this.navCtrl.navigateForward('/tab-alumn/bie-alum');
+        this.navCtrl.navigateForward(['/tab-alumn/',id]);
       }
     }
 

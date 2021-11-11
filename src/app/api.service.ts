@@ -37,4 +37,20 @@ export class ApiService {
   getTodos(){
     return this.usuario;
   }
+  /* recuperar uno */
+  getUno(id:string){
+    return this.usuariosCollection.doc<Usuario>(id).valueChanges();
+  }
+  /* añadir una persona */
+  addUsuario(usuario: Usuario){
+    return this.usuariosCollection.add(usuario);
+  }
+  /* Eliminar usuario */
+  removeUsuario(id:string){
+    return this.usuariosCollection.doc(id).delete();
+  }
+  /* Actualizar persona */
+  updateUsuario(nvo_usuario: Usuario, id:string){
+    return this.usuariosCollection.doc(id).update(nvo_usuario);
+  }
 }

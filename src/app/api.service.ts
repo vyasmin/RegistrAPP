@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 //
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Usuario } from './pages/model/usuario';
+
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -53,4 +54,5 @@ export class ApiService {
   updateUsuario(nvo_usuario: Usuario, id:string){
     return this.usuariosCollection.doc(id).update(nvo_usuario);
   }
+
 }
